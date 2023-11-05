@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Flashcards</title>
+
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: white;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+        }
+
+        .title {
+            font-size: 24px;
+            margin: 0 0 20px;
+        }
+
+        .flashcard {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #fff;
+        }
+
+        #question {
+            font-size: 18px;
+            display: none;
+        }
+
+        #answer {
+            font-size: 18px;
+        }
+
+        .controls button {
+            font-size: 16px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">Flashcards</h1>
+        <div class="flashcard">
+            <div id="question">Question 1</div>
+            <div id="answer">Answer 1</div>
+        </div>
+        <div class="controls">
+            <button id="show">Show Answer</button>
+            <button id="next">Next</button>
+        </div>
+    </div>
+    <script src="./src/index.js"></script>
+</body>
+<script>
+    const flashcards = [
+        { question: "Question 1", answer: "Answer 1" },
+        { question: "Question 2", answer: "Answer 2" },
+    ];
+
+    let currentCardIndex = 0;
+
+    const questionElement = document.querySelector("#question");
+    const answerElement = document.querySelector("#answer");
+    const showAnswerButton = document.getElementById("show");
+    const nextCardButton = document.getElementById("next");
+
+    function showQuestion() {
+        questionElement.style.display = "block";
+        answerElement.style.display = "none";
+        showAnswerButton.disabled = false;
+        nextCardButton.disabled = true;
+    }
+
+    function showAnswer() {
+        questionElement.style.display = "none";
+        answerElement.style.display = "block";
+        showAnswerButton.disabled = true;
+        nextCardButton.disabled = false;
+    }
+
+    function showNextCard() {
+        if (currentCardIndex < flashcards.length - 1) {
+            currentCardIndex++;
+            showQuestion();
+            displayFlashcard(currentCardIndex);
+        }
+    }
+
+    function displayFlashcard(index) {
+        const flashcard = flashcards[index];
+        questionElement.textContent = flashcard.question;
+        answerElement.textContent = flashcard.answer;
+        showQuestion();
+    }
+
+    showAnswerButton.addEventListener("click", showAnswer);
+    nextCardButton.addEventListener("click", showNextCard);
+
+    displayFlashcard(currentCardIndex);
+
+</script>
+
+</html>
