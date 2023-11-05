@@ -70,45 +70,44 @@
 
     let currentCardIndex = 0;
 
-    const questionElement = document.querySelector("#question");
-    const answerElement = document.querySelector("#answer");
-    const showAnswerButton = document.getElementById("show");
-    const nextCardButton = document.getElementById("next");
+    const question_el = document.querySelector("#question");
+    const answer_el = document.querySelector("#answer");
+    const showButton = document.getElementById("show");
+    const nextButt = document.getElementById("next");
 
-    function showQuestion() {
-        questionElement.style.display = "block";
-        answerElement.style.display = "none";
-        showAnswerButton.disabled = false;
-        nextCardButton.disabled = true;
+    function displayQtn() {
+        question_el.style.display = "block";
+        answer_el.style.display = "none";
+        showButton.disabled = false;
+        nextButt.disabled = true;
     }
 
-    function showAnswer() {
-        questionElement.style.display = "none";
-        answerElement.style.display = "block";
-        showAnswerButton.disabled = true;
-        nextCardButton.disabled = false;
+    function displayAns() {
+        question_el.style.display = "none";
+        answer_el.style.display = "block";
+        showButton.disabled = true;
+        nextButt.disabled = false;
     }
 
     function showNextCard() {
         if (currentCardIndex < flashcards.length - 1) {
             currentCardIndex++;
-            showQuestion();
-            displayFlashcard(currentCardIndex);
+            displayQtn();
+            displayfCard(currentCardIndex);
         }
     }
 
-    function displayFlashcard(index) {
+    function displayfCard(index) {
         const flashcard = flashcards[index];
-        questionElement.textContent = flashcard.question;
-        answerElement.textContent = flashcard.answer;
-        showQuestion();
+        question_el.textContent = flashcard.question;
+        answer_el.textContent = flashcard.answer;
+        displayQtn();
     }
 
-    showAnswerButton.addEventListener("click", showAnswer);
-    nextCardButton.addEventListener("click", showNextCard);
+    showButton.addEventListener("click", displayAns);
+    nextButt.addEventListener("click", showNextCard);
 
-    displayFlashcard(currentCardIndex);
+    displayfCard(currentCardIndex);
 
 </script>
-
 </html>
