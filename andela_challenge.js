@@ -75,3 +75,8 @@ function add(arr) {
 function reverse(str) {
   return str.split("").reverse().join("");
 }
+
+
+
+
+const arr = arr
