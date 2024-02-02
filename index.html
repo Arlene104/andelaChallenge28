@@ -1,113 +1,48 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>Flashcards</title>
-
-    <style>
-        body {
-            font-family: sans-serif;
-            background-color: white;
-            text-align: center;
-        }
-
-        .container {
-            max-width: 400px;
-            margin: 0 auto;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-        }
-
-        .title {
-            font-size: 24px;
-            margin: 0 0 20px;
-        }
-
-        .flashcard {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin: 10px 0;
-            background-color: #fff;
-        }
-
-        #question {
-            font-size: 18px;
-            display: none;
-        }
-
-        #answer {
-            font-size: 18px;
-        }
-
-        .controls button {
-            font-size: 16px;
-            margin: 10px;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andela first task</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div class="container">
-        <h1 class="title">Flashcards</h1>
-        <div class="flashcard">
-            <div id="question">Question 1</div>
-            <div id="answer">Answer 1</div>
+    <section>
+        <div class="image-box">
+            <img src="../image/drawing.PNG" alt="">
         </div>
-        <div class="controls">
-            <button id="show">Show Answer</button>
-            <button id="next">Next</button>
+        
+        <div class="formbox">
+            <div class="container">
+            <div class="logo">
+                <img src="../image/Group 1686550876.svg" alt="">
+            </div>
+            <span class="texts">
+                <h3>Login to your account</h3>
+                <p>see what is going with your business</p>
+            </span>
+              <div class="embox">
+                <img src="../image/image 2.png" alt="">
+                <p>Continue with Google</p>
+              </div>
+                <div style="position: relative; left: -120px;"><h4 class="emtext" style="display: flex; justify-content: center; color: #A1A1A1;font-size: 12px;font-weight: 600;">........ or sign in with Email ........</h4><br></div>
+            <div class="login">
+                <label for="">Email</label>
+                <input type="text" placeholder="mailabc@gmail.com">
+                <label for="">Password</label>
+                <input type="password"  placeholder="......................">
+
+            </div>
+            <div class="helpsection">
+                <input type="checkbox" style="background-color: #7F265B; margin: 0px 5px;"><p>remember me</p>
+                <span><a href="#" style="color: #7F265B; font-weight: 700; text-decoration: none; margin: 0px 240px;">forgot password?</a></span>
+            </div>
+            <button type="submit">login</button>
+            </div>
+            <div class="last-section">
+            <p>not registered yet?</p> <a href="#" style="color: #7F265B;">create an account</a>
+            </div>
         </div>
-    </div>
-    <script src="./src/index.js"></script>
+    </section>
 </body>
-<script>
-    const flashcards = [
-        { question: "Question 1", answer: "Answer 1" },
-        { question: "Question 2", answer: "Answer 2" },
-    ];
-
-    let currentCardIndex = 0;
-
-    const question_el = document.querySelector("#question");
-    const answer_el = document.querySelector("#answer");
-    const showButton = document.getElementById("show");
-    const nextButt = document.getElementById("next");
-
-    function displayQtn() {
-        question_el.style.display = "block";
-        answer_el.style.display = "none";
-        showButton.disabled = false;
-        nextButt.disabled = true;
-    }
-
-    function displayAns() {
-        question_el.style.display = "none";
-        answer_el.style.display = "block";
-        showButton.disabled = true;
-        nextButt.disabled = false;
-    }
-
-    function showNextCard() {
-        if (currentCardIndex < flashcards.length - 1) {
-            currentCardIndex++;
-            displayQtn();
-            displayfCard(currentCardIndex);
-        }
-    }
-
-    function displayfCard(index) {
-        const flashcard = flashcards[index];
-        question_el.textContent = flashcard.question;
-        answer_el.textContent = flashcard.answer;
-        displayQtn();
-    }
-
-    showButton.addEventListener("click", displayAns);
-    nextButt.addEventListener("click", showNextCard);
-
-    displayfCard(currentCardIndex);
-
-</script>
 </html>
